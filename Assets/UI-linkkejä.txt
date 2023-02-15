@@ -1,0 +1,12 @@
+
+UI Toolkit video:
+https://www.youtube.com/watch?v=8w0qvO4Vumc
+
+Canvas render modes:
+https://www.youtube.com/watch?v=2NuFgs7ekfE
+
+DOTween video:
+https://www.youtube.com/watch?v=Y8cv-rF5j6c
+
+DOTween sivut:
+http://dotween.demigiant.com/
