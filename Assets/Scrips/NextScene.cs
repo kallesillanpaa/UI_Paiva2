@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; //pit‰‰ olla, jotta SceneManager lˆytyy
 
 
 public class NextScene : MonoBehaviour
@@ -20,25 +20,25 @@ public class NextScene : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) //kun spacea painetaan, aletaan lataamaan scene‰, mutta sit‰ ei viel‰ n‰ytet‰
         {
             waitForLoad = true;
-            async = SceneManager.LoadSceneAsync(sceneName); //starts loading the scene
-                                                            //as background task
-            async.allowSceneActivation = false;
+            async = SceneManager.LoadSceneAsync(sceneName); //skene‰ aletaan lataamaan taustalla
+                                                            
+            async.allowSceneActivation = false; //ei n‰ytet‰ skene‰ viel‰
         }
 
         if (waitForLoad == true)   //tai if(waitForLoad) 
         {
             timer += Time.deltaTime;
             //simuloidaan raskaan scenen latausta (joka kest‰isi 5 sekuntia)
-            //if (timer>=timerWait) //timerWait = 5 secs
+            if (timer>=timerWait) //timerWait = 5 secs
             
-            // tosiel‰m‰ss‰ n‰in:
-            if(async.progress >= 0.9f) //kun scene‰ on ladattu 90%
+            // todellisuudessa n‰in:
+            //if(async.progress >= 0.9f) //kun scene‰ on ladattu 90%
             {
                 waitForLoad= false;
-                async.allowSceneActivation= true;
+                async.allowSceneActivation= true; //skene n‰ytet‰‰n
             }
         }
 

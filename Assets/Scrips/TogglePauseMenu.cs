@@ -9,6 +9,7 @@ public class TogglePauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             //if (show) //sama kuin (show == true)       
             //{
             //    show = false;
@@ -18,10 +19,12 @@ public class TogglePauseMenu : MonoBehaviour
             //    show = true;
             //}
 
+            //sama hieman lyhyemmin
             //if (show) show = false;
             //else show = true;
 
-            show = !show;
+            //vielä lyhyemmin:
+            show = !show; //muutetaan (tässä boolean) vastakohtaiseksi arvoksi
             GetComponent<Animator>().SetBool("Show", show);
         }
     }

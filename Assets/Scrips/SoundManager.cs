@@ -4,18 +4,17 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager sm;
-
-    //public AudioClip GameMusic; //‰‰nitiedosto, jota soitetaan
+    public static SoundManager sm; // luodaan luokasta staattinen instanssi
     
     AudioSource audiosrc;
 
-    public AudioMixer mixer;
+    public AudioMixer mixer; //referenssi mikseriin. Muista paljastaa (expose) mikserist‰ volumen parametri,
+                             //nimeksi MusicVolume, jotta skriptin SetVolume toimii (hakee sen nimist‰ parametria)
 
-    public Slider volumeSlider;
+    public Slider volumeSlider; //slider, jonka arvoa muutetaan
 
 
-    public void Awake()
+    public void Awake() //pidet‰‰n huoli, ett‰ k‰sitell‰‰n aina samaa instanssia
     {
         if (sm == null)
         {
@@ -30,12 +29,12 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        audiosrc = GetComponent<AudioSource>();
+        audiosrc = GetComponent<AudioSource>(); //audiosource tulee lˆyty‰ gameobjektilta, jossa skripti on
     }
 
 
     public void SetVolume()
     {
-        mixer.SetFloat("MusicVolume", Mathf.Log10(volumeSlider.value) * 20);
+        mixer.SetFloat("MusicVolume", Mathf.Log10(volumeSlider.value) * 20); //‰‰nen s‰‰tˆ matemaattisesti
     }
 }
